@@ -1,12 +1,12 @@
 // Плавное открытие
-export function openModal(popup) {
+function openModal(popup) {
     popup.classList.add("popup_is-opened");
     document.addEventListener("keydown", closeModalEsc);
     popup.addEventListener("mousedown", closeModalOverlay);
   }
   
   // Плавное закрытие 
-  export function closeModal(popup) {
+function closeModal(popup) {
     popup.classList.remove("popup_is-opened");
     document.removeEventListener("keydown", closeModalEsc);
     popup.removeEventListener("mousedown", closeModalOverlay);
@@ -30,3 +30,5 @@ export function openModal(popup) {
       }
     }
   }
+
+  export { openModal, closeModal};
