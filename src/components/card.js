@@ -1,4 +1,4 @@
-import {deleteOwnCard, putLike, deleteLike} from "./API.js";
+import {deleteOwnCard, putLike, deleteLike} from "./api.js";
 
 // Темплейт карточки
 const cardTemplate = document.querySelector("#card-template").content;
@@ -10,14 +10,14 @@ function createCard(cardTemplate, data, deleteCard, likeHandler, openCard, userI
   const cardImage = card.querySelector(".card__image");
   const likeCount = card.querySelector(".card__like-number");
   //данные карточки
-  const dataCardId = data._id;
+  const dataCardID = data._id;
   cardImage.src = data.link;
   cardImage.alt = data.name;
   card.querySelector(".card__title").textContent = data.name;
 
   if (data.owner._id === userId){
     deleteButton.addEventListener("click", (evt)=>
-      deleteCard(evt, dataCardId)
+      deleteCard(evt, dataCardID)
     );
     }else{
       deleteButton.style.display = "none";
@@ -34,7 +34,7 @@ function createCard(cardTemplate, data, deleteCard, likeHandler, openCard, userI
     likeCount.textContent = data.likes.lenght;
 
     likeButton.addEventListener("click",(evt) => {
-      likeHandler(evt, dataCardId, likeCount);
+      likeHandler(evt, dataCardID, likeCount);
     });
 
     cardImage.addEventListener("click", () => {

@@ -3,7 +3,7 @@ import "../pages/index.css";
 import { cardTemplate, createCard, deleteCard, likeHandler } from "./card.js";
 import { openModal, closeModal } from "./modal.js";
 import { enableValidation, clearValidation } from "./validation.js";
-import { getUserInfo, getCard, patchUserInfo, patchAvatar, postNewCard } from "./API.js";
+import { getUserInfo, getCard, patchUserInfo, patchAvatar, postNewCard } from "./api.js";
 
 const validationConfig = {
   formSelector: ".popup__form",
@@ -49,6 +49,7 @@ const closeButtons = document.querySelectorAll(".popup__close");
 
 // Функция submit отображения имени в форме
 function handleEditProfileSubmit(evt) {
+  evt.preventDefault();
   loading(true, profileFormSubmitButton);
   patchUserInfo(nameInput.value, descriptionInput.value)
     .then((res) => {
@@ -112,7 +113,7 @@ function openEditProfilePopup() {
 }
 
 // Функция открытия попапа карточки
-function openCard(imageSrc, cardName) {
+function openCard(cardName, imageSrc) {
   openModal(imagePopup);
   imageInPopup.src = imageSrc;
   imageInPopup.alt = cardName;
