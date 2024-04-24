@@ -2,6 +2,7 @@ import {deleteOwnCard, putLike, deleteLike} from "./api.js";
 
 // Темплейт карточки
 const cardTemplate = document.querySelector("#card-template").content;
+
 // Функция создания карточки
 function createCard(cardTemplate, data, deleteCard, likeHandler, openCard, userId) {
   const card = cardTemplate.querySelector(".card").cloneNode(true);
@@ -23,7 +24,7 @@ function createCard(cardTemplate, data, deleteCard, likeHandler, openCard, userI
       deleteButton.style.display = "none";
     }
 
-    const isLiked = data.like.some((element)=> {
+    const isLiked = data.likes.some((element)=> {
       return element._id === userId;
     });
 

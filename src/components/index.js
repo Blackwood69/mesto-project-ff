@@ -140,7 +140,7 @@ Promise.all([getCard(), getUserInfo()])
     });
   })
   .catch((error) => {
-    console.error(`Error in server! Status: ${error}`);
+    console.error(`Error in server here! Status: ${error}`);
   });
 
 // Обработчики
