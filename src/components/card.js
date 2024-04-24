@@ -47,7 +47,7 @@ function createCard(cardTemplate, data, deleteCard, likeHandler, openCard, userI
 
 // Функция лайка
 function likeHandler(evt, id, count) {
-  const like = evt.target.classList.toggle("card__like-button_is-active")
+  const like = evt.target.classList.contains("card__like-button_is-active")
     ? deleteLike
     : putLike;
   like(id)
