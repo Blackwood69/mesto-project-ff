@@ -47,6 +47,7 @@ const popupAvatarEditOpen = document.querySelector(".profile__image_cover");
 //Закрытие попапов
 const closeButtons = document.querySelectorAll(".popup__close");
 
+
 // Функция submit отображения имени в форме
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
@@ -173,10 +174,6 @@ popupAvatarEditOpen.addEventListener("click", () => {
   clearValidation(formEditProfile, validationConfig);
   openModal(popupAvatarEdit);
   formAvatar.reset();
-});
-
-formElement.addEventListener("submit", function (evt) {
-  evt.preventDefault();
 });
 
 // закрытие по клику на крестик
