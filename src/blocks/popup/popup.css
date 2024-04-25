@@ -21,3 +21,14 @@
   right: 0;
   z-index: 10;
 }
+
+.form__input-error {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  color: #FF0000;
+  border: none;
+  min-height: 39px;
+}
