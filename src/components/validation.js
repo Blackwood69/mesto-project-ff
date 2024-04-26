@@ -1,3 +1,12 @@
+export const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_inactive",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active",
+};
+
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(config.inputErrorClass);
@@ -39,7 +48,7 @@ const setEventListeners = (formElement, config) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement, config);
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, buttonElement, config);
     });
   });
 };
@@ -86,7 +95,7 @@ function clearValidation(formElement, config) {
   inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, config);
   });
-  disableButton(buttonElement);
+  disableButton(buttonElement, config);
 }
 
 export { enableValidation, clearValidation };

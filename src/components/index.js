@@ -2,17 +2,10 @@
 import "../pages/index.css";
 import { cardTemplate, createCard, deleteCard, likeHandler } from "./card.js";
 import { openModal, closeModal } from "./modal.js";
-import { enableValidation, clearValidation } from "./validation.js";
+import { enableValidation, clearValidation, validationConfig } from "./validation.js";
 import { getUserInfo, getCard, patchUserInfo, patchAvatar, postNewCard,} from "./api.js";
 
-const validationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_inactive",
-  inputErrorClass: "form__input_type_error",
-  errorClass: "form__input-error_active",
-};
+
 
 // DOM узлы
 const cardsContainer = document.querySelector(".places__list");
