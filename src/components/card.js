@@ -69,7 +69,7 @@ function likeHandler(evt, id, likesCountElement) {
 
 // Функция удаления карточки
 function deleteCard(evt, id) {
-  Promise.all([deleteOwnCard(id), deleteLike(id)])
+  Promise.all([deleteOwnCard(id)])
     .then(() => {
       evt.target.closest(".places__item").remove();
     })

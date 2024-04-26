@@ -57,13 +57,11 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement, config) => {
+const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add(config.inactiveButtonClass);
+    disableButton(buttonElement);
   } else {
-    buttonElement.disabled = false;
-    buttonElement.classList.remove(config.inactiveButtonClass);
+    enableButton(buttonElement);
   }
 };
 
@@ -76,7 +74,19 @@ function clearValidation(formElement, config) {
   inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, config);
   });
-  toggleButtonState(inputList, buttonElement, config);
+  disableButton(buttonElement);
 }
 
+
+// Функция для отключения кнопки
+const disableButton = (buttonElement) => {
+  buttonElement.disabled = true;
+  buttonElement.classList.add(config.inactiveButtonClass);
+};
+
+// Функция для включения кнопки
+const enableButton = (buttonElement) => {
+  buttonElement.disabled = false;
+  buttonElement.classList.remove(config.inactiveButtonClass);
+};
 export { enableValidation, clearValidation };
