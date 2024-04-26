@@ -39,7 +39,7 @@ const setEventListeners = (formElement, config) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement, config);
-      toggleButtonState(inputList, buttonElement, config);
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
@@ -57,11 +57,23 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
+// Функция для отключения кнопки
+const disableButton = (buttonElement, config) => {
+  buttonElement.disabled = true;
+  buttonElement.classList.add(config.inactiveButtonClass);
+};
+
+// Функция для включения кнопки
+const enableButton = (buttonElement, config) => {
+  buttonElement.disabled = false;
+  buttonElement.classList.remove(config.inactiveButtonClass);
+};
+
+const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
-    disableButton(buttonElement);
+    disableButton(buttonElement, config);
   } else {
-    enableButton(buttonElement);
+    enableButton(buttonElement, config);
   }
 };
 
@@ -77,16 +89,4 @@ function clearValidation(formElement, config) {
   disableButton(buttonElement);
 }
 
-
-// Функция для отключения кнопки
-const disableButton = (buttonElement) => {
-  buttonElement.disabled = true;
-  buttonElement.classList.add(config.inactiveButtonClass);
-};
-
-// Функция для включения кнопки
-const enableButton = (buttonElement) => {
-  buttonElement.disabled = false;
-  buttonElement.classList.remove(config.inactiveButtonClass);
-};
 export { enableValidation, clearValidation };
